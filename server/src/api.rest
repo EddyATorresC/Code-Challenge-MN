@@ -1,0 +1,58 @@
+###
+POST http://localhost:4000/api/lb-to-kg
+Content-Type: application/json
+
+{
+    "value": "a"
+}
+
+###
+POST http://localhost:4000/api/kg-to-lb
+Content-Type: application/json
+
+{
+    "value": "1"
+}
+
+###
+POST http://localhost:4000/api/calculate-kg-lb
+Content-Type: application/json
+
+{
+    "valueKg": "1",
+    "valueLb": "5",
+    "operation": "substract"
+}
+###
+POST http://localhost:4000/api/ftpin-to-mtpcm
+Content-Type: application/json
+
+{
+    "feetValue": "1",
+    "inchesValue": "2"
+}
+
+###
+POST http://localhost:4000/api/mtpcm-to-ftpin
+Content-Type: application/json
+
+{
+    "meterValue": "1",
+    "cmValue": "2"
+}
+
+###
+POST http://localhost:4000/api/mi-to-km
+Content-Type: application/json
+
+{
+    "value": "2"
+}
+
+###
+POST http://localhost:4000/api/km-to-mi
+Content-Type: application/json
+
+{
+    "value": "1"
+}

@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header title">
+                Pounds to Kilograms
+            </div>
+            <div class="card-body">
+                <form [formGroup]="convertFormPounds" (ngSubmit)="PoundsToKilograms()" [noValidate]="false">
+                    <div class="form-group">
+                        <label for="lb-1">Pounds</label>
+                        <input type="number" class="form-control" id="lb-1" name="lb-1" placeholder="e.g. 2.2lb" formControlName="value" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 0.4rem;">
+                        <label for="kg-1">Kilograms</label>
+                        <input type="number" class="form-control" id="kg-1" name="kg-1" placeholder="e.g. 1kg" [value]="poundsToKilogramConversion" readonly>
+                    </div>
+                    <button class="btn btn-primary m-2 btn-sm" (click)="resetFormPounds($event)">Clean</button>
+                    <button class="btn btn-secondary btn-sm">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-header title">
+                Kilograms to Pounds
+            </div>
+            <div class="card-body">
+                <form [formGroup]="convertFormKilograms" (ngSubmit)="KilogramsToPounds()" [noValidate]="false">
+                    <div class="form-group">
+                        <label for="kg">Kilograms</label>
+                        <input type="number" class="form-control" id="kg" name="kg" placeholder="e.g. 1Kg" formControlName="value" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 0.4rem;">
+                        <label for="lb">Pounds</label>
+                        <input type="number" class="form-control" id="lb" name="lb" placeholder="e.g. 2.2lb" [value]="kilogramToPoundConversion" readonly>
+                    </div>
+                    <button class="btn btn-primary m-2 btn-sm" (click)="resetFormKilograms($event)">Clean</button>
+                    <button class="btn btn-secondary btn-sm">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header title">
+                Calculations between units
+            </div>
+            <div class="card-body">
+                <form [formGroup]="calculationsForm" (ngSubmit)="performCalculation()" [noValidate]="false">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="kg-2">Kilograms</label>
+                            <input type="number" class="form-control" id="kg-2" name="kg-2" placeholder="e.g. 1Kg" formControlName="valueKg" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lb-2">Pounds</label>
+                            <input type="number" class="form-control" id="lb-2" name="lb-2" placeholder="e.g. 2.2lb" formControlName="valueLb" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 0.4rem; margin-bottom: 1rem;">
+                        <label for="sel-2">Operation</label>
+                        <select class="form-control" id="sel-2" name="sel-2" formControlName="operation" required>
+                            <option value="" selected hidden >Choose an option</option>
+                            <option value="add">Add (+)</option>
+                            <option value="substract">Substract (-)</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary m-2 btn-sm" (click)="resetFormCalculation($event)">Clean</button>
+                    <button class="btn btn-secondary btn-sm">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>
+                        History Log
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let record of history">
+                    <td>{{record}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
